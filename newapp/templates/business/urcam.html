@@ -1,0 +1,106 @@
+{% extends 'business/basic.html' %}
+{% block title %}Cam Page {% endblock %}
+{% block body %}
+<div class="container py-4">
+    <h1>Upload <span class="text-info">Your Item</span> Details Here:</h1>
+    <h4 class="text-danger my-2">Important Points:</h4>
+    <ul>
+        <li><strong><h6 class="my-2">If You Want To Give Your  Items(like cameras,shirts,pants,spectacles,syndles,shoes,laptops,bluetooths,vehicles...etc) For Rent Or For Sale Then Enter Your Details Below Otherwise Dont Fill  </h6></strong></li>
+    <li><strong><h6>If You Want To Give Your Item For Rent Or Sale Then Fill Up All feilds</h6></strong></li>
+        <li><strong><h6>In The Description Write Upto 500 Letters Only If You Fill Up More Than That Then Your Item Will Not Be Shown To the Users</h6></strong></li>
+            <li><strong><h6>Kindly Follow Our Steps Then We Will Show Your Item In Homepage </h6></strong></li>
+            <li><strong><h6>If You Want To Sell Your Items Then In The Description Write About The Item And Write This Item Is For Sale </h6></strong></li>
+   <li><strong><h6>In The Brand Input Field Enter Brand Of Items Like For Cameras Nicon,canon ..etc.For Shoes Adidas,Nike,Puma..etc For Dreses Enter Dress Type As Shirt,T-shirt,Blazers,Pants..etc</h6></strong></li>
+    <li><strong><span class="text-danger">Note:</span>Vehicles Are Only For Hiring Dont Give Your Vehicles For Rent</strong></li>
+    </ul>
+        <form method="POST" action="" enctype="multipart/form-data">
+        {%csrf_token %}
+      <div class="row">
+          <div class="col-md-6">
+
+
+              <div class="form-group">
+                  <label for="exampleFormControlSelect1">Example select</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="category">
+
+                       <option>Cameras</option>
+                      <option>Clothes</option>
+                          <option>Shoes</option>
+                          <option>Chappals</option>
+                          <option>Syndles</option>
+                          <option>Vehicles</option>
+                          <option>Spectacles</option>
+                          <option>Home Appliances</option>
+                          <option>Electronics</option>
+                          <option>Other</option>
+
+                  </select>
+              </div>
+              <div class="form-group">
+    <label for="ex1">Item Name(Shirts,T-shirts,Blazers,Shoes,syndles..etc),Brand,Size</label>
+    <input type="text" class="form-control" id="ex1" placeholder="enter The Deatils After Reading Above Line And Instructions"  name="itemname" required>
+  </div>
+
+    <div class="form-group">
+    <label for="ex4">Item rentperday</label>
+    <input type="number" class="form-control" id="ex4" placeholder="rent..per day." name="itemrentperday" required>
+    </div>
+        <div class="form-group">
+    <label for="ex5">Item Owner</label>
+    <input type="text" class="form-control" id="ex5" placeholder="itemowner." name="itemowner">
+    </div>
+              <div class="form-group">
+         <label for="ex8">Address</label>
+         <input type="text" class="form-control" id="ex8" placeholder="Address.." name="adress" required>
+        </div>
+
+          </div>
+           <div class="col-md-6">
+        <div class="form-group">
+    <label for="ex11">Item Colour</label>
+    <input type="text" class="form-control" id="ex11" placeholder="Item colour Like red,blue,black...etc; ." name="itemcolour">
+    </div>
+
+        <div class="form-group">
+          <label for="ex6">Upload Your Item Photo</label>
+           <input type="file" class="form-control-file" id="ex6" name="itempic" required>
+        </div>
+
+
+
+        <div class="form-group">
+         <label for="ex7">Contact no:</label>
+         <input type="tel" class="form-control" id="ex7" placeholder="whatsapp no.." name="whatsappno" required>
+        </div>
+               <div class="form-group">
+         <label for="ex12">Alternative Mobile no:</label>
+         <input type="tel" class="form-control" id="ex12" placeholder="Alternative Mobile No" name="whatsappno2" required>
+        </div>
+                <div class="form-group">
+         <label for="ex13">Email id:</label>
+         <input type="email" class="form-control" id="ex13" placeholder="Email id" name="email" required>
+        </div>
+
+          </div>
+      </div>
+
+
+        <div class="form-group">
+    <label for="ex9">About Item(below 200 words only)</label>
+    <textarea class="form-control" id="ex9" rows="2" name="desc" required></textarea>
+  </div>
+
+
+
+    <button type="submit" class="btn btn-info">Submit</button>
+
+    {% for message in messages %}
+       <h4 id="messages" class="text-success" style="font-size:20px;padding-bottom:2px;">{{message}}</h4>
+        <br>
+        {% endfor %}
+    </form>
+
+    </div>
+
+{% endblock %}
+

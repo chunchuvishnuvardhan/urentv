@@ -1,0 +1,84 @@
+{% extends 'business/basic.html' %}
+{% block title %}Edit Items{% endblock %}
+<body>
+{% block body %}
+<div class="container">
+    <h1 class="text-danger">Edit Or Update Your Item Details Here</h1>
+    <form method="POST" action="/update/{{pro.id}}" enctype="multipart/form-data">
+        {%csrf_token %}
+      <div class="row">
+          <div class="col-md-6">
+
+              <div class="form-group">
+                  <label for="exampleFormControlSelect1">Example select</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="category" value="{{pro.category}}">
+                      <option>Cameras</option>
+                      <option>Clothes</option>
+                          <option>Shoes</option>
+                          <option>Chappals</option>
+                          <option>Syndles</option>
+                          <option>Vehicles</option>
+                          <option>Spectacles</option>
+                          <option>Home Appliances</option>
+                          <option>Other</option>
+
+                  </select>
+              </div>
+              <div class="form-group">
+    <label for="ex1">Item Name(Shirts,T-shirts,Blazers,Shoes,syndles..etc),Brand,Size</label>
+    <input type="text" class="form-control" id="ex1" placeholder="enter The Deatils After Reading Above Line And Instructions"  name="itemname" value="{{pro.itemname}}" required>
+  </div>
+
+    <div class="form-group">
+    <label for="ex4">Item rentperday</label>
+    <input type="number" class="form-control" id="ex4" placeholder="rent..per day." name="itemrentperday" value="{{pro.itemrentperday}}" required>
+    </div>
+        <div class="form-group">
+    <label for="ex5">Item Owner</label>
+    <input type="text" class="form-control" id="ex5" placeholder="itemowner." name="itemowner" value="{{pro.itemowner}}">
+    </div>
+              <div class="form-group">
+         <label for="ex8">Address</label>
+         <input type="text" class="form-control" id="ex8" placeholder="Address.." name="adress" value="{{pro.adress}}" required>
+        </div>
+          </div>
+           <div class="col-md-6">
+        <div class="form-group">
+    <label for="ex11">Item Colour</label>
+    <input type="text" class="form-control" id="ex11" placeholder="Item colour Like red,blue,black...etc; ." name="itemcolour" value="{{pro.itemcolour}}">
+    </div>
+
+        <div class="form-group">
+          <label for="ex6">Upload Your Item Photo</label>
+           <input type="file" class="form-control-file" id="ex6" name="itempic" value="<img src='/media/{{pro.itempic}}'>" required>
+        </div>
+
+
+
+        <div class="form-group">
+         <label for="ex7">Contact no:</label>
+         <input type="tel" class="form-control" id="ex7" placeholder="whatsapp no.." name="whatsappno" value="{{pro.whatsappno}}" required>
+        </div>
+               <div class="form-group">
+         <label for="ex10">Alternative mobile no:</label>
+         <input type="tel" class="form-control" id="ex10" placeholder="Alternative mobile No.." name="whatsappno2" value="{{pro.whatsappno2}}" required>
+        </div>
+               <div class="form-group">
+         <label for="ex12">Email</label>
+         <input type="email" class="form-control" id="ex12" placeholder="Email.." name="email" value="{{pro.email}}" required>
+        </div>
+
+          </div>
+      </div>
+        <div class="form-group">
+       <label for="ex9">About Item(Below 200 words only)</label>
+       <textarea class="form-control" id="ex9" rows="3" name="desc" value="{{pro.desc}}" required></textarea>
+        </div>
+    <button type="submit" class="btn btn-info">Submit</button>
+
+    </form>
+</div>
+
+{% endblock %}
+
+</body>

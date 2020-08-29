@@ -1,0 +1,60 @@
+{% extends 'business/basic.html' %}
+{% block title %}My Items{% endblock %}
+<body>
+{% block body %}
+<div class="container py-4">
+<h1><span class="text-warning">My Items</span></h1>
+
+
+
+    <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+          <th>Item Category</th>
+           <th scope="col">Item Name</th>
+           <th scope="col">Item RentPerday</th>
+           <th scope="col">Item Owner</th>
+           <th scope="col">Item Colour</th>
+           <th scope="col">ItemPic</th>
+           <th scope="col">Whatsapp no</th>
+          <th scope="col">Mobile no2</th>
+          <th scope="col">Email</th>
+           <th scope="col">adress</th>
+           <th scope="col">Description</th>
+          <th scope="col">Author</th>
+          <th scope="col">Actions</th>
+      </tr>
+    </thead>
+      <tbody>
+      {% for pro in pros %}
+      <tr>
+        <td>{{pro.category}}</td>
+        <td>{{pro.itemname}}</td>
+        <td>{{pro.itemrentperday}}</td>
+        <td>{{pro.itemowner}}</td>
+        <td>{{pro.itemcolour}}</td>
+        <td> <img src='/media/{{pro.itempic}}' class="card-img-top" style="height:75px;width:60px;"></td>
+        <td>{{pro.whatsappno}}</td>
+          <td>{{pro.whatsappno2}}</td>
+          <td>{{pro.email}}</td>
+        <td>{{pro.adress}}</td>
+        <td>{{pro.desc}}</td>
+          <td>{{pro.user}}</td>
+
+          <td><a href="/edit/{{pro.id}}"><span class="btn btn-primary my-1">Edit</span> </a>
+          <a href="/delete/{{pro.id}}"><span class="btn btn-danger my-1">Delete</span> </a></td>
+
+
+      </tr>
+      {% endfor %}
+      </tbody>
+
+  </table>
+</div>
+
+
+</div>
+
+{% endblock %}
+</body>

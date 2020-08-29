@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+       <link rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+  </head>
+<!-- Bootstrap core JavaScript -->
+
+<!-- MDB core JavaScript -->
+
+    <title>{% block title %}Login {% endblock %}</title>
+      <style>
+      {% block css %}
+
+     .navbar {
+    background-color: #24355C;
+}
+
+.top-nav-collapse {
+    background-color:#24355C  ;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #24355C  ;
+    }
+}
+.footer{
+ background-color: #24355C;
+ color:white;
+
+
+}
+
+      .container{
+      margin-top:80px;
+
+      }
+   .{
+  padding:0;
+  margin:0;
+}
+
+
+
+
+
+{% endblock %}
+ </style>
+
+<header>
+    {% block header %}
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+        <a class="navbar-brand" href="#">
+        <strong>URENT</strong>
+        </a>
+       <a class="navbar-brand" href="#">
+           <span class='fas fa-camera' style='font-size:39px;color:white;'></span>
+       </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav mr-auto smooth-scroll">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" style="font-size:17px;color:white;"><strong>Home</strong><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/myitems" style="font-size:17px;color:white;"><strong>My Items</strong></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contactpage' %}" style="font-size:17px;color:white;"><strong>Contact Us</strong></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'itempage' %}" style="font-size:17px;color:white;"><strong>Upload Ur Items</strong></a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="{% url 'aboutus' %}" style="font-size:17px;color:white;"><strong>About Us</strong></a>
+                 </li>
+
+            </ul>
+              <form method='GET' action="{% url 'search' %}" class="form-inline my-2 my-lg-0">
+                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
+                 <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
+               </form>
+            <button type="button" class="btn btn-warning mx-2 my-2" data-html="true" data-container="body" data-toggle="popover"  id="popcart" data-placement="bottom" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+  Cart(<span id="cart">0</span>)
+</button>
+
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link mt-1" style="font-size:17px;color:white;" href="{% url 'logoutpage' %}">Logout</a>
+                </li>
+               <li class="nav-item">
+                    <a class="nav-link mt-1" style="font-size:17px;color:white;" href="#" >Hi {{user}}</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <!---<div class="view intro-2" style="">
+        <div class="full-bg-img">
+            <div class="mask rgba-blue-light flex-center">
+                <div class="container text-center white-text wow fadeInUp">
+                    <h2 style="font-size:80px">Gadget Bowl</h2>
+                    <br>
+                    <h5>“A bowl of white sauce pasta with the best ingredients!!” Sound good! Right?</h5>
+                    <h5>Introducing <strong >GADGET BOWL</strong>-the bowl of best gadgets for you!</h5>
+                    <br>
+                    <h5>we wish to win your trust because we believe in "Quality for Eternity".</h5>
+
+                </div>
+            </div>
+        </div>
+    </div>--->
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+
+
+{% endblock %}
+</header>
+  <body>
+  {% block body %}
+  <p>This Is The Home page</p>
+
+<script>
+    {% block js %}
+    document.getElementById('')
+    {% endblock %}
+</script>
+{% endblock %}
+
+  </body>
+
+
+
+
+<footer class="page-footer font-small unique-color-dark" >
+    <div class="footer">
+
+        <!-- Social buttons -->
+        <div class="primary-color">
+
+        </div>
+        <!-- Social buttons -->
+
+        <!--Footer Links-->
+        <div class="container   text-center text-md-left">
+            <div class="row mt-4">
+
+                <!--First column-->
+                <div class="col-md-3 col-lg-4 col-xl-3 mb-4 mt-4">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>URENT</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;color:deep-purple">
+                    <p>Here you can Take Items For Rent Or Buy From The Sellers And You Can Also Give Your Items For Rent Or You Can Sale Also..Our Aim Is Anyone Can Give Rent And Anyone Can Take Rent </p>
+                </div>
+                <!--/.First column-->
+
+                <!--Second column-->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 mt-4">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>Products</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+                        <li>Cameras</li>
+                        <li>Shoes</li>
+                        <li>Clothes</li>
+                        <li>Electronics</li>
+                        <li>Machines</li>
+
+                </div>
+                <!--/.Second column-->
+
+                <!--Third column-->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 mt-4">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>Useful links</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <a href="{% url 'homepage' %}">Home</a>
+                    </p>
+                    <p>
+                        <a href="{% url 'itempage' %}">Give Rent</a>
+                    </p>
+                    <p>
+                        <a href="{% url 'myitems' %}">My Items</a>
+                    </p>
+                    <p>
+                        <a href="{% url 'contactpage' %}">Contact Us</a>
+                    </p>
+                </div>
+                <!--/.Third column-->
+
+                <!--Fourth column-->
+                <div class="col-md-3 col-lg-3 col-xl-3 mt-4">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>Contact</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <i class="fas fa-home mr-2" style="font-size:25px;"></i></i> Hyderabad</p>
+                    <p>
+                        <i class="fa fa-envelope mr-2" style="font-size:25px;"></i> chunchuvishnu@gmail.com</p>
+                    <p>
+                        <i class="fa fa-phone mr-2" style="font-size:25px;"></i> +91 9347989220</p>
+                    <p>
+                        <i class="fa fa-phone mr-2" style="font-size:25px;"></i> +91 93479989220</p>
+                </div>
+                <!--/.Fourth column-->
+
+            </div>
+
+<hr><hr>
+
+            <div class="row py-2 d-flex align-items-center">
+
+                    <!--Grid column-->
+                    <div class="col-md-4 col-lg-3 text-center text-md-left mb-4 mb-md-0">
+                        <h6 class="mb-0 white-text">Get connected with us on social networks!</h6>
+                    </div>
+                    <!--Grid column-->
+                <div class="col-md-4 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        <a href="{% url 'feedback' %}">Give Your Feed Back</a>
+                    </div>
+
+                    <!--Grid column-->
+                    <div class="col-md-4 col-lg-7 text-center text-md-right" style="font-size:35px;">
+                        <!--Facebook-->
+                        <a class="fb-ic ml-0">
+                            <i class="fab fa-facebook white-text mr-4"> </i>
+                        </a>
+                        <!--Twitter-->
+                        <a class="tw-ic">
+                            <i class="fab fa-twitter white-text mr-4"> </i>
+                        </a>
+                        <!--Google +-->
+                        <a class="gplus-ic">
+                            <i class="fab fa-google-plus white-text mr-4"> </i>
+                        </a>
+                        <!--Linkedin-->
+                        <a class="li-ic">
+                            <i class="fab fa-linkedin white-text mr-4"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a class="ins-ic">
+                            <i class="fab fa-instagram white-text mr-lg-4"> </i>
+                        </a>
+                    </div>
+                    <!--Grid column-->
+
+
+
+
+        </div>
+        <!--/.Footer Links-->
+    <hr><hr>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://mdbootstrap.com/bootstrap-tutorial/"> URENT.com</a>
+        </div>
+        <!-- Copyright -->
+        </div>
+    </div>
+    </footer>
+    <!-- Footer -->
+
+
+
+</html>

@@ -1,0 +1,70 @@
+{% extends 'business/basic.html' %}
+<title>{% block title %}Item Page {% endblock %}</title>
+<body>
+{% block body %}
+
+<div class="container my-4" style="background-color:#EDF0F2;">
+    <br><br><br>
+    <h1 style="text-align:center;font-style:sanserif;"><strong>This Is Your product page</strong></h1>
+<h6 style="text-align:center;"><strong>Here,You Can Find All Details About Yours Selected Item</strong></h6>
+    <div class="row my-5">
+      <div class="col-md-4">
+          <h1 class="text-warning" style="font-size:45px;">Image here</h1>
+          <div class="card my-4">
+
+                        <img src='/media/{{prod.itempic}}' class="card-img-top" style="height:100%;width:100%;"
+                             alt="...">
+
+      </div>
+      </div>
+        <div class="col-md-8">
+            <h1>About This Item</h1>
+            <div class="card-body">
+                <h2 class="card-title py-2"><strong>Item type</strong>: {{prod.category}}</h2>
+                <h4 class="card-title py-2"><strong>Item Brand</strong>:{{prod.itemname}}</h4>
+                <h4 class="py-2"><strong>Rent Per Day</strong>: Rs.{{prod.itemrentperday}}</h4>
+                <h4 class="py-2"><strong>Owner Name</strong>: {{prod.itemowner}}</h4>
+                <h4 class="py-2"> <strong>Item Colour</strong>: {{prod.itemcolour}}</h4>
+                <h4 class="py-2"><strong>Whatsapp no</strong>: {{prod.whatsappno}}</h4>
+                <h4 class="py-2"><strong>Adress</strong>: {{prod.adress}}</h4>
+                <h6><strong>About Item</strong>: {{prod.desc}}</h6>
+       </div>
+       </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}
+{% block js %}
+<script>
+console.log('working');
+if(localStorage.getItem('cart') == null){
+var cart = {};
+}
+else
+{
+cart = JSON.parse(localStorage.getItem('cart'));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+}
+$('.cart').click(function(){
+console.log('clicked');
+var idstr = this.id.toString();
+console.log(idstr);
+if (cart[idstr] !=undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else
+{
+cart[idstr] = 1;
+}
+console.log(cart);
+localStorage.setItem('cart', JSON.stringify(cart));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+});
+$('#popcart').popover();
+document.getElementById("popcart").setAttribute('data-content', '<h5>Cart for your items in my shopping cart</h5>');
+</script>
+{% endblock %}
+
+</body>
